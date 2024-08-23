@@ -31,9 +31,9 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="copy-right">
+      {/* <div className="copy-right">
         Copyright © 2024. All rights reserved by DeFI-IRA.
-      </div>
+      </div> */}
     </div>
   );
 };
