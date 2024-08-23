@@ -6,13 +6,7 @@ const Sidebar = ({ openSidebar, setOpenSidebar }) => {
   console.log("openSidebar....", openSidebar);
   const navBarItems = [
     { lbl: "Home", slug: "/" },
-    {
-      lbl: "About us",
-      slug: "#aboutus",
-    },
-    { lbl: "Staking", slug: "/staking" },
-    { lbl: "Road Map", slug: "#roadmap" },
-    { lbl: "Tokenomics", slug: "/" },
+    
   ];
 
   useEffect(() => {
@@ -34,7 +28,7 @@ const Sidebar = ({ openSidebar, setOpenSidebar }) => {
       >
         <div className="hdr flex items-center justify-between gap-2">
           <div className="hdr-tag">
-            <img src="./images/logo.svg" className=" h-14" />
+            <img src="./images/ira_logo.png" className=" h-14" />
           </div>
           <div
             className="icon-close flex aic jc"
@@ -63,12 +57,12 @@ const Sidebar = ({ openSidebar, setOpenSidebar }) => {
                 </Link>
               ))}
             </>
-            <Link
-              to="/staking-pass"
-              className="btn-stack button w-full rounded-md inter"
+            <button
+              
+              className="btn-stack  w-full rounded-md inter h-10" style={{ backgroundColor:"white" , color:"black"}}
             >
-              Staking Pass
-            </Link>
+              Connect Wallet
+            </button>
           </div>
         </div>
       </div>
