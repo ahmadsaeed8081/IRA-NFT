@@ -4,10 +4,20 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { WagmiProvider } from 'wagmi'
+import {config} from "./configs/web3.config"
+
+ 
+const queryClient = new QueryClient()
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
+    <WagmiProvider config={config}>
+    <QueryClientProvider client={queryClient}>
     <App />
+    </QueryClientProvider>
+    </WagmiProvider>    
   </React.StrictMode>
 );
 

@@ -2,6 +2,12 @@ import React, { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { CloseIcon } from "../../assets/Icons";
 
+
+
+import { useWeb3Modal,useWeb3ModalTheme,use } from '@web3modal/wagmi/react'
+import { useAccount, useReadContract, useWriteContract } from "wagmi";
+
+
 const Sidebar = ({ openSidebar, setOpenSidebar }) => {
   console.log("openSidebar....", openSidebar);
   const navBarItems = [
@@ -15,6 +21,14 @@ const Sidebar = ({ openSidebar, setOpenSidebar }) => {
       setOpenSidebar(false);
     });
   }, []);
+
+  
+  const { open, close } = useWeb3Modal()
+  const { isConnected,isDisconnected,chain } = useAccount()
+  const { address } = useAccount();
+
+
+
 
   return (
     <div
@@ -60,6 +74,7 @@ const Sidebar = ({ openSidebar, setOpenSidebar }) => {
             <button
               
               className="btn-stack  w-full rounded-md inter h-10" style={{ backgroundColor:"white" , color:"black"}}
+              onClick={() => open()}
             >
               Connect Wallet
             </button>
