@@ -1300,26 +1300,24 @@ abstract contract Ownable is Context {
 pragma solidity ^0.8.7;
 
 
-contract NFT_Minting is ERC721Enumerable, Ownable {
+contract DeFI_IRA is ERC721Enumerable, Ownable {
     using Strings for uint256;
 
     string public baseURI; //private
     string public baseExtension = ".json";
     uint256 public cost = 0.018 ether;
-    uint256 public maxSupply = 2000;
-    uint256 public maxMintAmount = 15;
+    uint256 public maxSupply = 100;
+    uint256 public maxMintAmount = 5;
     bool public paused = false;
 
-    address public ira_address = 0x029C58A909fBe3d4BE85a24f414DDa923A3Fde0F;
+    address public ira_address = 0x04d279873de44a9F9753E0EC8fD3404F42C56eeb;
     uint public nft_price=105000 ether;
 
     constructor(
-        string memory _name,
-        string memory _symbol,
         string memory _initBaseURI
 
 
-    ) ERC721(_name, _symbol) {
+    ) ERC721("DeFI-IRA", "DeFI-IRA") {
 
 
         setBaseURI(_initBaseURI);
@@ -1332,7 +1330,7 @@ contract NFT_Minting is ERC721Enumerable, Ownable {
     }
 
     // public
-    function mint(address _to, uint256 _mintAmount) public payable {
+    function mint(address _to, uint256 _mintAmount) public {
 
         uint256 supply = totalSupply();
         require(!paused,"minting is paused");
@@ -1340,7 +1338,7 @@ contract NFT_Minting is ERC721Enumerable, Ownable {
         require(supply + _mintAmount <= maxSupply,"all Nfts has been sold");
 
         if (msg.sender != owner()) {
-            require(Token(ira_address).balanceOf(msg.sender) >= nft_price * _mintAmount ,"not enough usdt");
+            require(Token(ira_address).balanceOf(msg.sender) >= nft_price * _mintAmount ,"not enough IRA");
             require(Token(ira_address).allowance(msg.sender,address(this))>= nft_price * _mintAmount ,"less allowance");   
 
             Token(ira_address).transferFrom(msg.sender,owner(),nft_price * _mintAmount);

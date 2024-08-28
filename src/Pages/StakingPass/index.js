@@ -135,7 +135,7 @@ try {
 
 function Convert_To_eth(val) {
 const web3 = new Web3(
-  new Web3.providers.HttpProvider("https://polygon.meowrpc.com")
+  new Web3.providers.HttpProvider("https://base.drpc.org	")
 );
 
 val = web3.utils.fromWei(val.toString(), "ether");
@@ -144,7 +144,7 @@ return val;
 
 function Convert_To_Wei(val) {
 const web3 = new Web3(
-  new Web3.providers.HttpProvider("https://polygon.meowrpc.com")
+  new Web3.providers.HttpProvider("https://base.drpc.org	")
 );
 
 val = web3.utils.toWei(val.toString(), "ether");
@@ -189,13 +189,12 @@ else
 async function test() 
     {
   
-      const web3= new Web3(new Web3.providers.HttpProvider("https://base-sepolia-rpc.publicnode.com	"));
+      const web3= new Web3(new Web3.providers.HttpProvider("https://base.drpc.org	"));
       let balance;
       const contract = new web3.eth.Contract(minting_abi, mint_address);
       const Token_contract = new web3.eth.Contract(token_abi, ira_address);
 
       let supply = await contract.methods.totalSupply().call();
-      let public_cost = await contract.methods.cost().call();
       let paused = await contract.methods.paused().call();  
       let maxSupply = await contract.methods.maxSupply().call();
       let maxMintAmount = await contract.methods.maxMintAmount().call();
@@ -211,11 +210,9 @@ async function test()
       set_nft_price(nft_price)
       set_ira_balance(ira_balance)
       set_paused(paused);
-      set_cost(public_cost)
       set_balance(balance)
       set_supply(supply)
       set_maxSupply(maxSupply);
-      set_curr_price(public_cost)
 
     }
 
@@ -245,7 +242,7 @@ async function test()
           </div>
           <div className="right flex flex-col flex-1">
             <h1 style={{ color: "#ffffff", fontSize: "32px" }} className="mb-4">
-              DeFI IRA NFTs
+            DeFi-IRA NFT
             </h1>
             <p className="price-lbl text-white font-light">Price per mint</p>
             <h2 className="title2 text-white font-medium text-xl mb-4">

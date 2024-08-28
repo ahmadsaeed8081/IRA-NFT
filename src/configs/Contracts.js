@@ -1,6 +1,6 @@
 
-export const ira_address="0x04d279873de44a9F9753E0EC8fD3404F42C56eeb"
-export const mint_address="0xa002862eCed94D808Cf8cEfC5CdBe170d34C25C3";
+export const ira_address="0x029C58A909fBe3d4BE85a24f414DDa923A3Fde0F"
+export const mint_address="0x289E2DAA020494d2159be05257997986A7929F6b";
 
 
 export const minting_abi=[

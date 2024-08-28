@@ -42,7 +42,10 @@ const Sidebar = ({ openSidebar, setOpenSidebar }) => {
       >
         <div className="hdr flex items-center justify-between gap-2">
           <div className="hdr-tag">
+          <Link to="https://defi-ira.com/">
+
             <img src="./images/ira_logo.png" className=" h-14" />
+          </Link>
           </div>
           <div
             className="icon-close flex aic jc"

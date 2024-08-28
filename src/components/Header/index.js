@@ -45,7 +45,7 @@ const Header = ({ openSidebar, setOpenSidebar }) => {
       <div className="wrapWidth wrap flex items-center justify-between gap-5">
         <div className="left flex items-center">
           <div className="logo-img flex items-center justify-center">
-            <Link to="/">
+            <Link to="https://defi-ira.com/">
               <img src="../images/ira_logo.png" className="logo" />
             </Link>
           </div>
